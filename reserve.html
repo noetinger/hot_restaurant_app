@@ -1,49 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hot Tater Tots</title>
+  <title>Make Reservations</title>
   <!--Bootstrap-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Place your kit's code here -->
   <script src="https://kit.fontawesome.com/2a0eee549d.js"></script>
 </head>
+
 <body>
   <div class="container">
 
-		<div class="jumbotron">
+    <div class="jumbotron">
 
-			<h1 class="text-center"><i class="fas fa-fire"></i> Hot Tater Tot Restaurant <i class="fas fa-fire"></i></h1>
-			<hr>
-			<h2 class="text-center">Make your reservation!</h2>
-      
-      
+      <h1 class="text-center"><i class="fas fa-fire"></i> Hot Tater Tot Restaurant <i class="fas fa-fire"></i></h1>
+      <hr>
+      <h2 class="text-center">Make your reservation!</h2>
+
+
       <br>
 
-			<div class="text-center">
+      <div class="text-center">
 
-				<a href="./tables.html"><button type="button" class="btn btn-lg btn-primary"><i class="far fa-list-alt"></i> View Tables</button></a>
-        <a href="./home.html"><button type="button" class="btn btn-sm btn-light"><i class="fas fa-home"></i></button></a>
-        
+        <a href="./tables.html"><button type="button" class="btn btn-lg btn-primary"><i class="far fa-list-alt"></i>
+            View Tables</button></a>
+        <a href="./home.html"><button type="button" class="btn btn-sm btn-light"><i
+              class="fas fa-home"></i></button></a>
+
       </div>
-      
-
-        </div>
-        <!--Table Reservation Table-->
-        <div>
 
 
-        </div>
+    </div>
+    <!--Table Reservation Table-->
+    <div class="card">
+      <div class="card-header">
+        Table Reservation
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" id="name" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="Email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Phone Number</label>
+            <input type="tel" class="form-control" id="phoneNumber">
+          </div>
+
+          <div class="form-group">
+            <label for="ID">Unique ID</label>
+            <input type="text" id="id" class="form-control">
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="submitReserve">Submit</button>
+        </form>
+
+      </div>
+    </div>
 
     <footer class="footer">
       <div class="container">
-	        <p><a>Clear Table</a> | <a>API Table Link</a> | <a>API Wait List</a></p>
+        <p><a>Clear Table</a> | <a>API Table Link</a> | <a>API Wait List</a></p>
       </div>
     </footer>
 
-	</div>
+  </div>
 </body>
+
 </html>
