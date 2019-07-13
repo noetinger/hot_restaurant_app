@@ -11,6 +11,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Place your kit's code here -->
   <script src="https://kit.fontawesome.com/2a0eee549d.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -86,14 +87,14 @@
       ID: $("#id").val().trim()
     };
 
-  $.post("/tables", addReservation)
+  $.post("/reserve.html", addReservation)
     .then(function(data) {
       console.log("reserve.html", data);
       alert("You're booked!")
-    })
+    });
 
 
-  })
+  });
   
   
   
