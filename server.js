@@ -27,18 +27,18 @@ app.get("/", function (req, res) {
 });
 
 //route to reserve table page
-app.get("/reserve", function (req, res) {
+app.get("/reserve.html", function (req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
 //route to view table page and display table
-app.get("/tables", function (req, res) {
+app.get("/tables.html", function (req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
     return res.json(table);
 });
 
 //Create new table
-app.post("/tables", function (req, res) {
+app.post("/tables.html", function (req, res) {
     var newTable = req.body;
 
     console.log(newTable);
@@ -46,6 +46,14 @@ app.post("/tables", function (req, res) {
     table.push(newTable);
 
     res.json(newTable);
+    /* 
+    //If there are more than 5 reservations, send to the wait list:
+    if(tables.length > 5){
+        for(i = 5; i < tables.length; i++){
+
+        }
+    }
+    */
 });
 
 

@@ -86,7 +86,7 @@
       ID: $("#id").val().trim()
     };
 
-  $.post("/tables", addReservation)
+  $.post("/reserve", addReservation)
     .then(function(data) {
       console.log("reserve.html", data);
       alert("You're booked!")
