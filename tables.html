@@ -11,7 +11,7 @@
   <!-- Place your kit's code here -->
   <script src="https://kit.fontawesome.com/2a0eee549d.js"></script>
 </head>
-<body><body>
+<body>
         <div class="container">
       
               <div class="jumbotron">
@@ -55,7 +55,7 @@
 
 
                   </div>
-                
+                </div>
                 
       
           <footer class="footer">
@@ -63,3 +63,61 @@
                   <p><a>Clear Table</a> | <a>API Table Link</a> | <a>API Wait List</a></p>
             </div>
           </footer>
+
+          <script type="text/javascript">
+          function runTableQuery(){
+              $.ajax({url:"/api/tables", method: "GET"})
+              .then(function(tableData){
+                  for (var i = 0; i < tableData.length; i++){
+                      var tableList = $("#tableList");
+                      var listItem = $("<li class='list-grouup-item mt-4>");
+
+                        listItem.append(
+                            $("<h2>").text("Table #" + (i + 1)),
+                            $("<hr>"),
+                            $("<h2>").text("ID: " + tableData[i].customerID),
+                            $("<h2>").text("Name: " + tableData[i].customerName),  
+                            $("<h2>").text("Email: " + tableData[i].customerEmail), 
+                            $("<h2>").text("Phone: " + tableData[i].customerPhoneNumber), 
+                        );
+                        tableList.append(listItem);
+                  }
+              });
+          }
+
+          function runWaitListQuery(){
+            $.ajax({url:"/api/waitList", method: "GET"})
+              .then(function(waitData){
+                for (var i = 0; i < waitData.length; i++){
+                      var waitList = $("#waitList");
+                      var listItem = $("<li class='list-grouup-item mt-4>");
+
+                        listItem.append(
+                            $("<h2>").text("Table #" + (i + 1)),
+                            $("<hr>"),
+                            $("<h2>").text("ID: " + waitData[i].customerID),
+                            $("<h2>").text("Name: " + waitData[i].customerName),  
+                            $("<h2>").text("Email: " + waitData[i].customerEmail), 
+                            $("<h2>").text("Phone: " + waitData[i].customerPhoneNumber), 
+                        );
+                        waitList.append(listItem);
+                  }
+
+              });
+          }
+        function clearTable(){
+            alert("Clearing all reservations.");
+
+            $ajax({url: "/api/clear", method: "POST"})
+            .then(function(){
+                $("#waitList").empty();
+                $("#tableList").empty();
+            });
+        }
+        $("#clear").on("click", clearTable);
+
+        runTableQuery();
+        runWaitListQuery();
+          </script>
+          </body>
+          </html>
