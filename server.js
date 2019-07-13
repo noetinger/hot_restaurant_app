@@ -31,15 +31,14 @@ app.get("/reserve", function (req, res){
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
-//route to view table page
+//route to view table page and display table
 app.get("/tables", function (req, res){
     res.sendFile(path.join(__dirname, "tables.html"));
+    return res.json(table);
 });
 
-//Display the tables
-
-
 //Create new table
+
 
 
 
