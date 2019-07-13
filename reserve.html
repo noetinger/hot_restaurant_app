@@ -29,8 +29,7 @@
 
         <a href="./tables.html"><button type="button" class="btn btn-lg btn-primary"><i class="far fa-list-alt"></i>
             View Tables</button></a>
-        <a href="./home.html"><button type="button" class="btn btn-sm btn-light"><i
-              class="fas fa-home"></i></button></a>
+        <a href="./home.html"><button type="button" class="btn btn-lg btn-light"><i class="fas fa-home"></i></button></a>
 
       </div>
 
@@ -55,7 +54,7 @@
 
           <div class="form-group">
             <label for="exampleInputPassword1">Phone Number</label>
-            <input type="tel" class="form-control" id="phoneNumber">
+            <input type="tel" class="form-control" id="phone">
           </div>
 
           <div class="form-group">
@@ -63,7 +62,7 @@
             <input type="text" id="id" class="form-control">
           </div>
 
-          <button type="submit" class="btn btn-primary" id="submitReserve">Submit</button>
+          <button type="submit" class="btn btn-primary" id="submit">Submit</button>
         </form>
 
       </div>
@@ -71,11 +70,36 @@
 
     <footer class="footer">
       <div class="container">
-        <p><a>Clear Table</a> | <a>API Table Link</a> | <a>API Wait List</a></p>
+        <p><a>API Table Link</a> | <a>API Wait List</a></p>
       </div>
     </footer>
 
   </div>
+
+  <script type="text/javascript">
+  $("#submit").on("click", function(event){
+    event.preventDefault();
+    var addReservation = {
+      name: $("#name").val().trim(),
+      email: $("#email").val().trim(),
+      phone: $("#phone").val().trim(),
+      ID: $("#id").val().trim()
+    };
+
+  $.post("/tables", addReservation)
+    .then(function(data) {
+      console.log("reserve.html", data);
+      alert("You're booked!")
+    })
+
+
+  })
+  
+  
+  
+  
+  
+  </script>
 </body>
 
 </html>
