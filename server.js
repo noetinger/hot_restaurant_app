@@ -38,7 +38,7 @@ app.get("/tables.html", function (req, res) {
 });
 
 //Create new table
-app.post("/tables.html", function (req, res) {
+app.post("/reserve.html", function (req, res) {
     var newTable = req.body;
 
     console.log(newTable);
