@@ -45,6 +45,7 @@ app.get("/tables.html", function (req, res) {
 //route to view table page and display table
 app.get("/tables", function (req, res) {
     console.log("Sent table data");
+    console.log(table)
     return res.json(table);
 });
 

@@ -16,128 +16,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-  <div class="container">
-
-    <div class="jumbotron">
-
-      <h1 class="text-center"><i class="fas fa-fire"></i> Hot Tater Tot Restaurant <i class="fas fa-fire"></i></h1>
-      <hr>
-      <h2 class="text-center">Make your reservation!</h2>
-
-
-      <br>
-
-      <div class="text-center">
-
-        <a href="./reserve.html"><button type="button" class="btn btn-lg btn-danger"><i class="far fa-list-alt"></i>Make
-            Reservation</button></a>
-        <a href="./home.html"><button type="button" class="btn btn-sm btn-light"><i
-              class="fas fa-home"></i></button></a>
-
-      </div>
-
-
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <!-- Current Reservation List-->
-        <div class="card">
-          <div class="card-header">
-            <h3><strong>Current Reservations</strong></h3>
-          </div>
-          <div class="card-body">
-            <ul id="tableList" class="list-group"></ul>
-          </div>
-        </div>
-        <!-- Waiting List Card-->
-        <div class="mt-4">
-          <div class="card-header">
-            <h3><strong>Waiting List</strong></h3>
-          </div>
-          <div class="card-body">
-            <ul id="waitList" class="list-group"></ul>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-
-
-    <footer class="footer">
-      <div class="container">
-        <p><a>Clear Table</a> | <a>API Table Link</a> | <a>API Wait List</a></p>
-      </div>
-    </footer>
-
-    <script type="text/javascript">
-      function runTableQuery() {
-        $.ajax({
-            url: "/tables",
-            method: "GET"
-          })
-          .then(function (tableData) {
-            console.log("runTableQuery Function loaded.")
-            for (var i = 0; i < tableData.length; i++) {
-              var tableList = $("#tableList");
-              var listItem = $("<li class='list-grouup-item mt-4>");
-
-              listItem.append(
-                $("<h2>").text("Table #" + (i + 1)),
-                $("<hr>"),
-                $("<h2>").text("ID: " + tableData[i].ID),
-                $("<h2>").text("Name: " + tableData[i].name),
-                $("<h2>").text("Email: " + tableData[i].email),
-                $("<h2>").text("Phone: " + tableData[i].phone),
-              )
-                tableList.append(listItem),
-                console.log(listItem)
-            }
-          });
-      }
-
-      // function runWaitListQuery(){
-      //   $.ajax({url:"/api/waitList", method: "GET"})
-      //     .then(function(waitData){
-      //       for (var i = 0; i < waitData.length; i++){
-      //             var waitList = $("#waitList");
-      //             var listItem = $("<li class='list-grouup-item mt-4>");
-
-      //               listItem.append(
-      //                   $("<h2>").text("Table #" + (i + 1)),
-      //                   $("<hr>"),
-      //                   $("<h2>").text("ID: " + waitData[i].customerID),
-      //                   $("<h2>").text("Name: " + waitData[i].customerName),  
-      //                   $("<h2>").text("Email: " + waitData[i].customerEmail), 
-      //                   $("<h2>").text("Phone: " + waitData[i].customerPhoneNumber), 
-      //               );
-      //               waitList.append(listItem);
-      //         }
-
-      //     });
-      // }
-      function clearTable() {
-        alert("Clearing all reservations.");
-
-        $ajax({
-            url: "/api/clear",
-            method: "POST"
-          })
-          .then(function () {
-            $("#waitList").empty();
-            $("#tableList").empty();
-          });
-      }
-      $("#clear").on("click", clearTable);
-
-      runTableQuery();
-      // runWaitListQuery();
-    </script>
-</body>
-
-</html>
-=======
         <div class="container">
       
               <div class="jumbotron">
@@ -195,10 +73,11 @@
           function runTableQuery(){
               $.ajax({url:"/tables", method: "GET"})
               .then(function(tableData){
+                console.log(tableData);
                 console.log("runTableQuery Function loaded.")
                   for (var i = 0; i < tableData.length; i++){
                       var tableList = $("#tableList");
-                      var listItem = $("<li class='list-grouup-item mt-4>");
+                      var listItem = $("<li class='list-group-item mt-4'>");
 
                         listItem.append(
                             $("<h2>").text("Table #" + (i + 1)),
@@ -249,4 +128,3 @@
           </script>
           </body>
           </html>
->>>>>>> fcbdf38a560fa5395a6f6ac5e6d329d9a1cf118c
