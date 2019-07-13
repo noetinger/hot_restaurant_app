@@ -39,7 +39,6 @@ app.get("/tables", function (req, res) {
 
 //Create new table
 app.post("/tables", function (req, res) {
-
     var newTable = req.body;
 
     console.log(newTable);
