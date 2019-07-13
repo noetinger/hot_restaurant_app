@@ -10,6 +10,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Place your kit's code here -->
   <script src="https://kit.fontawesome.com/2a0eee549d.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
 <body>
         <div class="container">
@@ -66,8 +67,9 @@
 
           <script type="text/javascript">
           function runTableQuery(){
-              $.ajax({url:"/api/tables", method: "GET"})
+              $.ajax({url:"/tables", method: "GET"})
               .then(function(tableData){
+                console.log("runTableQuery Function loaded.")
                   for (var i = 0; i < tableData.length; i++){
                       var tableList = $("#tableList");
                       var listItem = $("<li class='list-grouup-item mt-4>");
@@ -75,36 +77,36 @@
                         listItem.append(
                             $("<h2>").text("Table #" + (i + 1)),
                             $("<hr>"),
-                            $("<h2>").text("ID: " + tableData[i].customerID),
-                            $("<h2>").text("Name: " + tableData[i].customerName),  
-                            $("<h2>").text("Email: " + tableData[i].customerEmail), 
-                            $("<h2>").text("Phone: " + tableData[i].customerPhoneNumber), 
+                            $("<h2>").text("ID: " + tableData[i].ID),
+                            $("<h2>").text("Name: " + tableData[i].name),  
+                            $("<h2>").text("Email: " + tableData[i].email), 
+                            $("<h2>").text("Phone: " + tableData[i].phone), 
                         );
                         tableList.append(listItem);
                   }
               });
           }
 
-          function runWaitListQuery(){
-            $.ajax({url:"/api/waitList", method: "GET"})
-              .then(function(waitData){
-                for (var i = 0; i < waitData.length; i++){
-                      var waitList = $("#waitList");
-                      var listItem = $("<li class='list-grouup-item mt-4>");
+          // function runWaitListQuery(){
+          //   $.ajax({url:"/api/waitList", method: "GET"})
+          //     .then(function(waitData){
+          //       for (var i = 0; i < waitData.length; i++){
+          //             var waitList = $("#waitList");
+          //             var listItem = $("<li class='list-grouup-item mt-4>");
 
-                        listItem.append(
-                            $("<h2>").text("Table #" + (i + 1)),
-                            $("<hr>"),
-                            $("<h2>").text("ID: " + waitData[i].customerID),
-                            $("<h2>").text("Name: " + waitData[i].customerName),  
-                            $("<h2>").text("Email: " + waitData[i].customerEmail), 
-                            $("<h2>").text("Phone: " + waitData[i].customerPhoneNumber), 
-                        );
-                        waitList.append(listItem);
-                  }
+          //               listItem.append(
+          //                   $("<h2>").text("Table #" + (i + 1)),
+          //                   $("<hr>"),
+          //                   $("<h2>").text("ID: " + waitData[i].customerID),
+          //                   $("<h2>").text("Name: " + waitData[i].customerName),  
+          //                   $("<h2>").text("Email: " + waitData[i].customerEmail), 
+          //                   $("<h2>").text("Phone: " + waitData[i].customerPhoneNumber), 
+          //               );
+          //               waitList.append(listItem);
+          //         }
 
-              });
-          }
+          //     });
+          // }
         function clearTable(){
             alert("Clearing all reservations.");
 
@@ -117,7 +119,7 @@
         $("#clear").on("click", clearTable);
 
         runTableQuery();
-        runWaitListQuery();
+        // runWaitListQuery();
           </script>
           </body>
           </html>

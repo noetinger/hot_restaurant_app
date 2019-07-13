@@ -28,17 +28,25 @@ app.get("/", function (req, res) {
 
 //route to reserve table page
 app.get("/reserve.html", function (req, res) {
+    console.log("Sent reserve.html");
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
 //route to view table page and display table
 app.get("/tables.html", function (req, res) {
+    console.log("Sent table.HTML");
     res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+//route to view table page and display table
+app.get("/tables", function (req, res) {
+    console.log("Sent table data");
     return res.json(table);
 });
 
 //Create new table
 app.post("/reserve.html", function (req, res) {
+    console.log("posted reserve info.")
     var newTable = req.body;
 
     console.log(newTable);
