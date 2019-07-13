@@ -26,6 +26,10 @@ app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "home.html"));
 });
 
+app.get("/home.html", function (req, res) {
+    res.sendFile(path.join(__dirname, "home.html"));
+});
+
 //route to reserve table page
 app.get("/reserve.html", function (req, res) {
     console.log("Sent reserve.html");
