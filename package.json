@@ -4,7 +4,7 @@
   "description": "the most hype restaurant app evar",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "path": "^0.12.7",
     "require": "^2.4.20"
   },
